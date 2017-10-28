@@ -3,7 +3,7 @@ from api import view as apiview
 
 
 app = Flask(__name__)
-
+app.register_blueprint(apiview)
 
 @app.route("/", methods=["GET"])
 def render_home():
@@ -27,8 +27,6 @@ def add_header(response):
 	response.headers['Cache-Control'] = 'no-cache'
 	return response
 
-
-app.register_blueprint(apiview)
 
 if __name__ == '__main__':
 	app.run(debug=True, host='0.0.0.0')
