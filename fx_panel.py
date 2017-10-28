@@ -1,4 +1,6 @@
 from flask import Flask, request, render_template
+from models.dbmodels import session, FirearmTxn, Owner, Users, FirearmType
+
 
 app = Flask(__name__)
 
@@ -14,6 +16,12 @@ def register_arm():
 		pass
 	else:
 		return render_template('register_arm.j2')
+
+
+@app.route("/api/v1/get_crime_report", methods=["GET"])
+def get_crime_report():
+	data = request.args
+	return str(data)
 
 
 if __name__ == '__main__':
