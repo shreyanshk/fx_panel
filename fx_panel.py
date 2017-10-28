@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from models.dbmodels import session, FirearmTxn, Owner, Users, FirearmType
+from api import view as apiview
 
 
 app = Flask(__name__)
@@ -13,16 +14,22 @@ def render_home():
 @app.route("/control/arms/register", methods=["GET", "POST"])
 def register_arm():
 	if request.method == 'POST':
-		pass
+		return "done"
 	else:
 		return render_template('register_arm.j2')
 
 
-@app.route("/api/v1/get_crime_report", methods=["GET"])
-def get_crime_report():
-	data = request.args
-	return str(data)
+@app.after_request
+def add_header(response):
+	"""
+	Add headers to both force latest IE rendering engine or Chrome Frame,
+	and also to cache the rendered page for 10 minutes.
+	"""
+	response.headers['Cache-Control'] = 'no-cache'
+	return response
 
+
+app.register_blueprint(apiview)
 
 if __name__ == '__main__':
 	app.run(debug=True, host='0.0.0.0')
