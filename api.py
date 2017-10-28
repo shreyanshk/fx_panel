@@ -29,6 +29,9 @@ statedict = {
 	"OR": 0,
 	"PB": 0,
 	"RJ": 0,
+	"UT": 0,
+	"CT": 0,
+	"TG": 0,
 	"SK": 0,
 	"TN": 0,
 	"TR": 0,
@@ -49,9 +52,9 @@ statedict = {
 def get_arm_report():
 	data = request.args
 	try:
-		fromtime = data['fromtime']
-		period = data['period']
-		count = data['count']
+		fromtime = int(data['fromtime'])
+		period = int(data['period'])
+		count = int(data['count'])
 	except KeyError:
 		return "", 404
 	totime = fromtime + period*count
