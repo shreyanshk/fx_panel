@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship, sessionmaker
 
 engine = create_engine('sqlite:///:memory:')
@@ -33,8 +33,11 @@ class FirearmTxn(Base):
 	__tablename__ = 'txns'
 
 	id = Column(Integer, primary_key=True)
+	txtype = Column(String)
+	serialno = Column(String)
 	origowner = relationship('Owner', ForeignKey(Owner.id))
 	newowner = relationship('Owner', ForeignKey(Owner.id))
+	date = Column(DateTime)
 
 
 class Users(Base):

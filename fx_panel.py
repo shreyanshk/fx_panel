@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template
-from models.dbmodels import session, FirearmTxn, Owner, Users, FirearmType
 from api import view as apiview
 
 
