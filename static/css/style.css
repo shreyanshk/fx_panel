@@ -21,5 +21,17 @@
 .login-card {
   width: 50%;
   margin: auto;
+  margin-top: 50px; }
+
+.register-arm-card {
+  width: 60%;
+  margin: auto;
   margin-top: 50px;
-  margin-bottom: 50px;}
+  margin-bottom: 50px; }
+
+.find-card {
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px; }
+

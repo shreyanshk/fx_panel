@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>fx-panel</title>
-     <link href = "{{ url_for('static',filename='vendor/twitter/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href = "{{ url_for('static',filename='vendor/twitter/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href = "{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" type="text/css">
 
     <script src="{{ url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
@@ -21,41 +21,32 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Register <span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Find</a>
+                <a class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item active active">
+                <a class="nav-link" href="#">Find <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
 </nav>
 <div class="container col-md-8">
-    <div class="card register-arm-card">
+    <div class="card find-card">
         <div class="card-block">
             <h3 class="card-title">
-               Arm Registration
+               Search Arms and Ammunation
             </h3>
             <form>
-                <fieldset class="form-group">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="userTypeRadio" id="registeredRadio" value="Registered">
-                            Registered
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="userTypeRadio" id="NewRadio" value="New" checked>
-                        New
-                        </label>
-                    </div>
-                </fieldset>
-
                 <div class="form-group">
-                    <label>Original Owner(ID)</label>
+                    <label>Serial Number</label>
+                    <input class="form-control" id="serialNo" placeholder="Serial Number">
+                    <small id="serialNoErr" class="form-text text-sm-center text-hide text-danger">
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label>Owner(ID)</label>
                     <input class="form-control" id="ownerAdhaar" placeholder="Adhaar No">
-                    <small id="ownerAdhaarErr" class="form-text text-sm-center text-hide text-danger">
+                    <small id="adhaarErr" class="form-text text-sm-center text-hide text-danger">
                     </small>
                 </div>
                 <div class="form-group new-user">
@@ -64,32 +55,10 @@
                     <small id="nameErr" class="form-text text-sm-center text-hide text-danger">
                     </small>
                 </div>
-                <div class="form-group new-user">
-                    <label>Phone Number</label>
-                    <input class="form-control" type="number" id="phNo" placeholder="Phone Number">
-                    <small id="phNoErr" class="form-text text-sm-center text-hide text-danger">
-                    </small>
-                </div>
-                <div class="form-group new-user">
-                    <label for="address">Address</label>
-                    <textarea class="form-control" id="address" rows="3"></textarea>
-                </div>
                 <div class="form-group">
-                    <label>Previous Owner(Adhaar No)</label>
-                    <input class="form-control" id="previousAdhaar" placeholder="Adhaar No">
-                    <small id="previousAdhaarErr" class="form-text text-sm-center text-hide text-danger">
-                    </small>
-                </div>
-                <div class="form-group">
-                    <label>Date</label>
+                    <label>Date of Transaction</label>
                     <input type="date" class="form-control" id="date" placeholder="">
                     <small id="dateErr" class="form-text text-sm-center text-hide text-danger">
-                    </small>
-                </div>
-                <div class="form-group">
-                    <label>Serial Number</label>
-                    <input class="form-control" id="serialNo" placeholder="Serial Number">
-                    <small id="serialNoErr" class="form-text text-sm-center text-hide text-danger">
                     </small>
                 </div>
                 <div class="form-group">
@@ -102,7 +71,7 @@
                     <small id="serialNoErr" class="form-text text-sm-center text-hide text-danger">
                     </small>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
     </div>
