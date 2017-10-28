@@ -1,0 +1,25 @@
+.navbar.navbar-light {
+  background-color: #ff9800; }
+
+.svg-container {
+  width: 40%;
+  margin: auto; }
+
+.land {
+  fill: #FFF;
+  stroke: #000;
+  stroke-width: 1px;
+  stroke-opacity: 1;
+  transition: 3s ease; }
+
+.time-btn {
+  float: right;
+  margin-top: 10px;
+  margin-right: 20px;
+  z-index: 2; }
+
+.login-card {
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;}
