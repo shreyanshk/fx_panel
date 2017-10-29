@@ -1,0 +1,13 @@
+dbserver:
+  image: postgres:10-alpine
+  expose:
+    - 5432
+
+appserver:
+  build: .
+  links:
+    - dbserver
+  ports:
+    - "5000:5000"
+  expose:
+    - 5000

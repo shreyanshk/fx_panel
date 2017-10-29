@@ -1,16 +1,11 @@
 FROM alpine:3.6
 RUN apk update
-RUN apk add python3
-# nodejs nodejs-npm
-# RUN /usr/bin/npm --global install node-sass babel-cli babel-preset-env
+RUN apk add --no-cache python3 py-psycopg2 &&\
+    pip3 install chaperone
 ADD requirements.txt /
 RUN pip3 install -r /requirements.txt
 ADD . /app/
-# compile sass and babel files
-# RUN /usr/bin/node-sass /app/src/sass -o /app/static/css &&\
-# /usr/bin/babel --no-babelrc /app/src/es6 -d /app/static/js &&\
-# rm -rf /app/src &&\
-# echo " ---> Finished preprocessing SASS and ES6"
-# done compiling
+RUN mkdir /etc/chaperone.d
+COPY chaperone.conf /etc/chaperone.d/chaperone.conf
 EXPOSE 5000
-CMD ["python3", "/app/fx_panel.py"]
+ENTRYPOINT ["/usr/bin/chaperone"]
